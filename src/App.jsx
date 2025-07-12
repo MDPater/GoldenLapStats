@@ -2,6 +2,7 @@ import { useState } from "react";
 import FileUploader from "./components/FileUploader";
 import LandingPage from "./sites/LandingPage";
 import SeasonStats from "./sites/SeasonStats";
+import "./App.css";
 
 function App() {
   const [active, setActive] = useState(false);

@@ -25,15 +25,23 @@ function Results({ setYear, jsonData }) {
                   {weekend.Results.DriversRaceStanding && (
                     <div className="d-flex gap-2">
                       {weekend.Results.DriversRaceStanding.slice(0, 3).map(
-                        (driver, i) => (
-                          <span
-                            key={i}
-                            className="badge bg-secondary text-light"
-                            title={driver.Driver}
-                          >
-                            {driver.Position}. {driver.Driver}
-                          </span>
-                        )
+                        (driver, i) => {
+                          const badgeClass =
+                            i === 0
+                              ? "bg-warning text-dark" // 🥇 Gold
+                              : i === 1
+                              ? "bg-secondary" // 🥈 Silver
+                              : "bg-bronze"; // 🥉 Custom bronze class
+                          return (
+                            <span
+                              key={i}
+                              className={`badge ${badgeClass}`}
+                              title={driver.Driver}
+                            >
+                              {driver.Position}. {driver.Driver}
+                            </span>
+                          );
+                        }
                       )}
                     </div>
                   )}
