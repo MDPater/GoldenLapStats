@@ -10,7 +10,7 @@ function SeasonStats({ data }) {
 
   return (
     <div className="p-4">
-      <h1>Save: {data.CareerHeader?.CareerName}</h1>
+      <h1>Save File: {data.CareerHeader?.CareerName}</h1>
       <div className="w-25">
         <CalendarYearDropdown data={data.Career?.Years} setYear={setYear} />
       </div>
@@ -60,7 +60,7 @@ function SeasonStats({ data }) {
               </a>
             </li>
           </ul>
-          <div className="mt-3">
+          <div className="mt-3 mb-5">
             {activeTab === "results" && (
               <Results setYear={year} jsonData={data} />
             )}

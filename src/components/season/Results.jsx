@@ -1,3 +1,5 @@
+import ResultBuilder from "./ResultBuilder";
+
 function Results({ setYear, jsonData }) {
   const year = jsonData.Career.Years.find((y) => y.CalendarYear == setYear);
 
@@ -9,14 +11,33 @@ function Results({ setYear, jsonData }) {
           <div className="accordion-item" key={index}>
             <h2 className="accordion-header" id={`heading-${index}`}>
               <button
-                className={`accordion-button ${index !== 0 ? "collapsed" : ""}`}
+                className={`accordion-button d-flex justify-content-between align-items-center ${
+                  index !== 0 ? "collapsed" : ""
+                }`}
                 type="button"
                 data-bs-toggle="collapse"
                 data-bs-target={`#collapse-${index}`}
                 aria-expanded={index === 0 ? "true" : "false"}
                 aria-controls={`collapse-${index}`}
               >
-                {weekend.TrackData}
+                <div className="d-flex justify-content-between align-items-center w-100">
+                  <span>{weekend.TrackData}</span>
+                  {weekend.Results.DriversRaceStanding && (
+                    <div className="d-flex gap-2">
+                      {weekend.Results.DriversRaceStanding.slice(0, 3).map(
+                        (driver, i) => (
+                          <span
+                            key={i}
+                            className="badge bg-secondary text-light"
+                            title={driver.Driver}
+                          >
+                            {driver.Position}. {driver.Driver}
+                          </span>
+                        )
+                      )}
+                    </div>
+                  )}
+                </div>
               </button>
             </h2>
             <div
@@ -28,8 +49,8 @@ function Results({ setYear, jsonData }) {
               data-bs-parent="#weekendsAccordion"
             >
               <div className="accordion-body">
-                {/* Customize this based on weekend object structure */}
-                <pre>{JSON.stringify(weekend, null, 2)}</pre>
+                <ResultBuilder weekend={weekend} />
+                {/*<pre>{JSON.stringify(weekend, null, 2)}</pre>*/}
               </div>
             </div>
           </div>
