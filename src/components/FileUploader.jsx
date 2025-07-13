@@ -31,8 +31,7 @@ function FileUploader({ onClose, setData }) {
   return (
     <div className="bg-dark container mt-4 border border-light p-3 rounded">
       <div className="alert alert-warning small" role="alert">
-        <strong>Note:</strong> This file uploader is only used to load your
-        local
+        <strong>Note:</strong> This file input is only used to load your local
         <em> Golden Lap </em> save file (<code>.json</code>). <br />
         Your file stays in your browser and is never uploaded or saved remotely.
       </div>
