@@ -4,6 +4,7 @@ import LandingPage from "./sites/LandingPage";
 import SeasonStats from "./sites/SeasonStats";
 import testData from "./model/testData.json";
 import "./App.css";
+import Footer from "./components/Footer";
 
 function App() {
   const [active, setActive] = useState(false);
@@ -45,6 +46,7 @@ function App() {
       )}
       {!data && <LandingPage />}
       {data && <SeasonStats data={data} />}
+      <Footer />
     </div>
   );
 }
