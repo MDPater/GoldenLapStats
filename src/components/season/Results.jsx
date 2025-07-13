@@ -22,7 +22,7 @@ function Results({ setYear, jsonData }) {
               >
                 <div className="d-flex justify-content-between align-items-center w-100">
                   <span>{weekend.TrackData}</span>
-                  {weekend.Results.DriversRaceStanding && (
+                  {weekend.Results?.DriversRaceStanding && (
                     <div className="d-flex gap-2">
                       {weekend.Results.DriversRaceStanding.slice(0, 3).map(
                         (driver, i) => {
