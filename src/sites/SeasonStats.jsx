@@ -11,6 +11,11 @@ function SeasonStats({ data }) {
   return (
     <div className="p-4">
       <h1>Save File: {data.CareerHeader?.CareerName}</h1>
+      <div className="d-flex align-items-center gap-3 mb-3">
+        <h5 className="">Your Team: {data.CareerHeader?.TeamInfo}</h5>
+        <h5 className="">Engineer: {data.CareerHeader?.Engineer}</h5>
+        <h5 className="">Crew Chief: {data.CareerHeader?.CrewChief}</h5>
+      </div>
       <div className="w-25">
         <CalendarYearDropdown data={data.Career?.Years} setYear={setYear} />
       </div>
