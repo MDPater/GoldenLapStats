@@ -2,6 +2,7 @@ import { useState } from "react";
 import FileUploader from "./components/FileUploader";
 import LandingPage from "./sites/LandingPage";
 import SeasonStats from "./sites/SeasonStats";
+import testData from "./model/testData.json";
 import "./App.css";
 
 function App() {
@@ -20,6 +21,13 @@ function App() {
             }}
           >
             Upload Save File
+          </button>
+          <button
+            type="button"
+            className="btn btn-outline-warning btn-sm"
+            onClick={() => setData(testData)}
+          >
+            Load Test Data
           </button>
           <button
             type="button"
