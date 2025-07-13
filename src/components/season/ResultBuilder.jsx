@@ -57,7 +57,7 @@ function ResultBuilder({ weekend }) {
               <th>Team</th>
               <th>Laps</th>
               <th>Pits</th>
-              <th>Lap Time</th>
+              <th>Race Time</th>
               <th>Fastest Lap</th>
               <th>Points</th>
             </tr>
