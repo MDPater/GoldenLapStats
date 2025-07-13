@@ -40,7 +40,7 @@ Use the **Delete Data** button to clear the app state and reset everything.
 
 ---
 
-## 📸 Screenshot
+## Game Link
 
 **[Golden Lap Game](https://store.steampowered.com/app/2052040/Golden_Lap/)**
 
