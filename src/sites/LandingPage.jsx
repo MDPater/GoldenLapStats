@@ -10,6 +10,19 @@ function LandingPage() {
           race weekends, and statistics in a clean and interactive format.
         </p>
 
+        <p>
+          <strong>Golden Lap</strong> is a game by Mayhem Games. You can check
+          it out on Steam:{" "}
+          <a
+            href="https://store.steampowered.com/app/2052040/Golden_Lap/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Steam Page
+          </a>
+          .
+        </p>
+
         <h4 className="mt-4">How to Get Your Save File</h4>
         <p>To locate your Golden Lap save file:</p>
         <ol>

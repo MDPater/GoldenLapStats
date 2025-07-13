@@ -29,56 +29,63 @@ function FileUploader({ onClose, setData }) {
   };
 
   return (
-    <div className="bg-dark container mt-4 border border-light p-3 position-relative">
-      <div
-        className="position-absolute d-flex gap-2"
-        style={{ top: "10px", right: "10px" }}
-      >
+    <div className="bg-dark container mt-4 border border-light p-3 rounded">
+      <div className="alert alert-warning small" role="alert">
+        <strong>Note:</strong> This file uploader is only used to load your
+        local
+        <em> Golden Lap </em> save file (<code>.json</code>). <br />
+        Your file stays in your browser and is never uploaded or saved remotely.
+      </div>
+
+      <div className="row align-items-center g-2 mb-3">
+        <div className="col-md">
+          <input
+            className="form-control"
+            type="file"
+            accept=".json"
+            onChange={fileUpload}
+          />
+        </div>
         {fileSelected && (
-          <button onClick={saveData} className="btn btn-success btn-sm">
-            Use Save File
-          </button>
+          <div className="col-auto">
+            <button onClick={saveData} className="btn btn-success btn-sm">
+              Use Save File
+            </button>
+          </div>
         )}
-        <button
-          onClick={onClose}
-          className="btn btn-danger btn-sm"
-          aria-label="Close"
-        >
-          &times;
-        </button>
+        <div className="col-auto">
+          <button
+            onClick={onClose}
+            className="btn btn-danger btn-sm"
+            aria-label="Close"
+          >
+            &times;
+          </button>
+        </div>
       </div>
-      <div className="row">
-        <input
-          className="col"
-          type="file"
-          accept=".json"
-          onChange={fileUpload}
-        />
-      </div>
-      <p>Current Save:</p>
+
+      <p className="mt-3">Current Save:</p>
       {file && (
-        <div>
-          <div className="mt-5 container">
-            <div className="row align-items-center gx-2 container-fluid">
-              <div className="col">
-                <pre className="text-light p-3 rounded mb-0">
-                  Save Name: {file.CareerHeader?.CareerName}
-                </pre>
-                <pre className="text-light p-3 rounded mb-0">
-                  Team: {file.CareerHeader?.TeamInfo}
-                </pre>
-                <pre className="text-light p-3 rounded mb-0">
-                  Current Year: {file.CareerHeader?.CurrentYear}
-                </pre>
-              </div>
-              <div className="col">
-                <pre className="text-light p-3 rounded mb-0">
-                  Driver 1: {file.CareerHeader?.Driver1}
-                </pre>
-                <pre className="text-light p-3 rounded mb-0">
-                  Driver 2: {file.CareerHeader?.Driver2}
-                </pre>
-              </div>
+        <div className="mt-3 container">
+          <div className="row align-items-center gx-2">
+            <div className="col">
+              <pre className="text-light p-3 rounded mb-0">
+                Save Name: {file.CareerHeader?.CareerName}
+              </pre>
+              <pre className="text-light p-3 rounded mb-0">
+                Team: {file.CareerHeader?.TeamInfo}
+              </pre>
+              <pre className="text-light p-3 rounded mb-0">
+                Current Year: {file.CareerHeader?.CurrentYear}
+              </pre>
+            </div>
+            <div className="col">
+              <pre className="text-light p-3 rounded mb-0">
+                Driver 1: {file.CareerHeader?.Driver1}
+              </pre>
+              <pre className="text-light p-3 rounded mb-0">
+                Driver 2: {file.CareerHeader?.Driver2}
+              </pre>
             </div>
           </div>
         </div>
