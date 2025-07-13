@@ -65,7 +65,9 @@ function SeasonStats({ data }) {
               <Results setYear={year} jsonData={data} />
             )}
             {activeTab === "teams" && <Teams setYear={year} jsonData={data} />}
-            {activeTab === "drivers" && <Drivers />}
+            {activeTab === "drivers" && (
+              <Drivers setYear={year} jsonData={data} />
+            )}
           </div>
         </>
       )}

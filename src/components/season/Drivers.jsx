@@ -1,4 +1,6 @@
-function Drivers() {
+function Drivers({ setYear, jsonData }) {
+  const year = jsonData.Career.Years.find((y) => y.CalendarYear == setYear);
+
   return (
     <div>
       <h1>Drivers</h1>
