@@ -1,12 +1,51 @@
-# React + Vite
+# 🏁 Golden Lap Stats Viewer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A web app that visualizes data from a **Golden Lap** save file. Upload your save file to explore season results, team and driver standings, and more — all in a clean, dynamic interface.
 
-Currently, two official plugins are available:
+## 🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Upload and view your personal save file from _Golden Lap_
+- Driver and team standings with live points calculation
+- Highlighted podiums and scoring breakdowns
+- Quick dropdown to navigate between seasons
+- Built-in test data and reset options for convenience
 
-## Expanding the ESLint configuration
+## 📂 Where to Find Your Save File
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. Navigate to this folder on your computer:  
+   `C:\Users\*yourname*\Documents\My Games\Golden Lap\Saves`
+
+2. There you'll find:  
+   `*your saved game name*.json`
+
+3. Upload that file using the **Upload Save File** button in the app.
+
+## 🧪 Test Data
+
+You can use the **Load Test Data** button to preview the app using the my own test save file.
+
+Use the **Delete Data** button to clear the app state and reset everything.
+
+## 🛠 Built With
+
+- **React** (via Vite)
+- **Bootstrap 5** for layout and styling
+- **JavaScript** (ES6+)
+- No backend – all data stays local in your browser
+
+## 👨‍💻 Developed By
+
+**Max de Pater**  
+🔗 [GitHub Profile](https://github.com/your-github-username)
+
+---
+
+## 📸 Screenshot
+
+![Golden Lap App Screenshot](./screenshot.png)
+
+---
+
+## 📜 License
+
+This project is open source and free to use under the [MIT License](LICENSE).
