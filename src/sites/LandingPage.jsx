@@ -16,8 +16,8 @@ function LandingPage() {
         </p>
 
         <p>
-          <strong>Golden Lap</strong> is a game by Mayhem Games. You can check
-          it out on Steam:{" "}
+          <strong>Golden Lap</strong> is a game by Funselektor Labs Inc.,
+          Strelka Games. You can check it out on Steam:{" "}
           <a
             href="https://store.steampowered.com/app/2052040/Golden_Lap/"
             target="_blank"
