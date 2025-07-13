@@ -76,6 +76,7 @@ function SeasonStats({ data }) {
           </div>
         </>
       )}
+      {!year && <h1>{/* Add driver cards in future */}</h1>}
     </div>
   );
 }
