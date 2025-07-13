@@ -60,7 +60,7 @@ function SeasonStats({ data }) {
               </a>
             </li>
           </ul>
-          <div className="mt-3 mb-5">
+          <div className="mt-3">
             {activeTab === "results" && (
               <Results setYear={year} jsonData={data} />
             )}
