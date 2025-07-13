@@ -3,6 +3,11 @@ function LandingPage() {
     <div className="container mt-5 mb-5">
       <h1 className="mb-4 text-center">Welcome to Golden Lap Stats</h1>
       <div className="card p-4 shadow-sm">
+        <div className="alert alert-info mt-2">
+          🔐 <strong>Privacy:</strong> This tool processes your Golden Lap save
+          file <strong>locally</strong> in your browser. No data is uploaded or
+          stored.
+        </div>
         <h4>What is this?</h4>
         <p>
           This site is used to <strong>visualize data</strong> from a{" "}
