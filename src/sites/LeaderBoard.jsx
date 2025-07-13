@@ -6,7 +6,7 @@ const isDriver = (person) =>
   person.States?.some((state) => state["$type"]?.includes("DriverStats"));
 
 function LeaderBoard({ jsonData }) {
-  const [activeTab, setActiveTab] = useState("Wins");
+  const [activeTab, setActiveTab] = useState("Championships");
   const drivers = jsonData.Career.People.filter(isDriver);
 
   return (
