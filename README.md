@@ -42,10 +42,10 @@ Use the **Delete Data** button to clear the app state and reset everything.
 
 ## 📸 Screenshot
 
-![Golden Lap Game](https://store.steampowered.com/app/2052040/Golden_Lap/)
+**[Golden Lap Game](https://store.steampowered.com/app/2052040/Golden_Lap/)**
 
 ---
 
 ## 📜 License
 
-This project is open source and free to use under the [MIT License](LICENSE).
+This project is open source and free to use under the [MIT License](LICENSE.txt).
