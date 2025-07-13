@@ -36,13 +36,13 @@ Use the **Delete Data** button to clear the app state and reset everything.
 ## 👨‍💻 Developed By
 
 **Max de Pater**  
-🔗 [GitHub Profile](https://github.com/your-github-username)
+🔗 [GitHub Profile](https://github.com/MDPater)
 
 ---
 
 ## 📸 Screenshot
 
-![Golden Lap App Screenshot](./screenshot.png)
+![Golden Lap Game](https://store.steampowered.com/app/2052040/Golden_Lap/)
 
 ---
 
