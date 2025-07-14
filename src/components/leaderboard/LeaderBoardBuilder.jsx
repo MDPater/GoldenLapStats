@@ -18,7 +18,9 @@ function LeaderBoardBuilder({ activeTab, jsonData }) {
 
   const sortedStats = jsonData
     .map((person) => {
-      const stats = person.States[0];
+      const stats = person.States.find((state) =>
+        state["$type"]?.includes("DriverStats")
+      );
       const isDead = person.States.some(
         (state) => state["$type"] === "Game.DeadDriver, Assembly-CSharp"
       );
