@@ -24,9 +24,9 @@ function SeasonStats({ data }) {
         </div>
         <button
           className="btn btn-outline-info mt-3 btn-sm"
-          onClick={() => setShowPopup(false)}
+          onClick={() => setShowPopup(true)}
         >
-          Golden Lap Statistics
+          Hall of Fame
         </button>
       </div>
 
@@ -34,7 +34,7 @@ function SeasonStats({ data }) {
         /*Show the LeaderBoard on button click*/
         showPopup && (
           <div className="modal show d-block" tabIndex="-1">
-            <div className="modal-dialog">
+            <div className="modal-dialog modal-xl">
               <div className="modal-content">
                 <div className="modal-header">
                   <h5 className="modal-title">Statistics</h5>
