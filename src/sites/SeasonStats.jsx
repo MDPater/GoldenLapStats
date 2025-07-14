@@ -26,7 +26,7 @@ function SeasonStats({ data }) {
           className="btn btn-outline-info mt-3 btn-sm"
           onClick={() => setShowPopup(true)}
         >
-          Golden Lap Statistics
+          Hall of Fame
         </button>
       </div>
 

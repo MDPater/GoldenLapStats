@@ -19,9 +19,13 @@ function LeaderBoardBuilder({ activeTab, jsonData }) {
   const sortedStats = jsonData
     .map((person) => {
       const stats = person.States[0];
+      const isDead = person.States.some(
+        (state) => state["$type"] === "Game.DeadDriver, Assembly-CSharp"
+      );
       return {
         name: person.Name,
         value: stats[fieldKey] || 0,
+        death: isDead,
       };
     })
     .filter((driver) => driver.value > 0)
@@ -54,9 +58,23 @@ function LeaderBoardBuilder({ activeTab, jsonData }) {
           </thead>
           <tbody>
             {sortedStats.map((driver, index) => (
-              <tr key={driver.name}>
+              <tr
+                key={driver.name}
+                className={driver.death ? "table-danger text-muted" : ""}
+              >
                 <td>{index + 1}</td>
-                <td>{driver.name}</td>
+                <td className="d-flex align-items-center gap-2">
+                  {driver.name}
+                  {driver.death && (
+                    <span
+                      className="badge bg-dark text-white px-2"
+                      style={{ fontSize: "0.75rem", fontWeight: "500" }}
+                      title="This driver is deceased"
+                    >
+                      ☠ Deceased
+                    </span>
+                  )}
+                </td>
                 <td>
                   <div className="d-flex justify-content-center">
                     <span
