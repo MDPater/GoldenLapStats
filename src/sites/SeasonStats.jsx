@@ -20,7 +20,11 @@ function SeasonStats({ data }) {
       </div>
       <div className="d-flex align-items-center gap-3 mb-3">
         <div className="w-25">
-          <CalendarYearDropdown data={data.Career?.Years} setYear={setYear} />
+          <CalendarYearDropdown
+            data={data.Career?.Years}
+            year={year}
+            setYear={setYear}
+          />
         </div>
         <button
           className="btn btn-outline-info mt-3 btn-sm"
