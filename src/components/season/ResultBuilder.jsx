@@ -70,7 +70,9 @@ function ResultBuilder({ weekend }) {
                 <td>{driver.Team}</td>
                 <td>{driver.Laps}</td>
                 <td>{driver.Pits}</td>
-                <td>{formatTime(driver.LapTime)}</td>
+                <td>
+                  {driver.LapTime === 0 ? "DNF" : formatTime(driver.LapTime)}
+                </td>
                 <td>
                   {formatTime(driver.FastestLapTime)}
                   {driver.FastestLap && (
