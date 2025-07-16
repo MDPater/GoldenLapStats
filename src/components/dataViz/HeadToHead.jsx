@@ -4,17 +4,29 @@ import CalendarYearDropdown from "../CalendarYearDropdown";
 function HeadToHead({ jsonData }) {
   const [yearViz, setYearViz] = useState("");
   const [drivers, setDrivers] = useState([]);
-  const [searchOne, setSearchOne] = useState("");
-  const [searchTwo, setSearchTwo] = useState("");
+  const [driverOne, setDriverOne] = useState("");
+  const [driverTwo, setDriverTwo] = useState("");
+  const [driverOneResult, setDriverOneResult] = useState({});
+  const [driverTwoResult, setDriverTwoResult] = useState({});
   const [isFocusedOne, setIsFocusedOne] = useState(false);
   const [isFocusedTwo, setIsFocusedTwo] = useState(false);
 
   useEffect(() => {
-    if (!yearViz) return setDrivers([]);
+    if (!yearViz) {
+      setDrivers([]);
+      setDriverOne("");
+      setDriverTwo("");
+      setDriverOneResult("");
+      setDriverTwoResult("");
+      return;
+    }
+
+    console.log("Driver One Results:", driverOneResult);
+    console.log("Driver Two Results:", driverTwoResult);
 
     const updatedDrivers = getDriverNamesForYear(jsonData.Career, yearViz);
     setDrivers(updatedDrivers);
-  }, [yearViz, jsonData]);
+  }, [yearViz, jsonData, driverOneResult, driverTwoResult]);
 
   const getDriverNamesForYear = (data, calendarYear) => {
     if (!calendarYear || !data?.Years) return [];
@@ -42,7 +54,41 @@ function HeadToHead({ jsonData }) {
     return Array.from(driverNames);
   };
 
-  console.log(drivers);
+  const getDriverResults = (data, calendarYear, driver) => {
+    if (!data.Career.Years || !calendarYear || !driver) return {};
+    const year = data.Career.Years.find(
+      (y) => y.CalendarYear === Number(calendarYear)
+    );
+    if (!year || !Array.isArray(year.Weekends)) return {};
+
+    const driverResults = [];
+
+    year.Weekends.forEach((weekend) => {
+      const round = weekend.TrackData;
+      const result = weekend.Results;
+
+      if (!result) return;
+
+      const quali = result.DriversQualiStanding?.find(
+        (entry) => entry.Driver === driver
+      );
+      const race = result.DriversRaceStanding?.find(
+        (entry) => entry.Driver === driver
+      );
+
+      if (quali || race) {
+        driverResults.push({
+          round,
+          quali: quali || null,
+          race: race || null,
+        });
+      }
+    });
+
+    return {
+      [driver]: driverResults,
+    };
+  };
 
   return (
     <div className="card shadow-lg bg-dark text-light p-4 mb-4">
@@ -63,17 +109,20 @@ function HeadToHead({ jsonData }) {
               <input
                 type="text"
                 className="form-control"
-                value={searchOne}
+                value={driverOne}
                 onFocus={() => setIsFocusedOne(true)}
                 onBlur={() => setTimeout(() => setIsFocusedOne(false), 100)}
-                onChange={(e) => setSearchOne(e.target.value)}
+                onChange={(e) => setDriverOne(e.target.value)}
                 placeholder="Type to search..."
               />
-              {searchOne && (
+              {driverOne && (
                 <button
                   type="button"
                   className="btn btn-sm btn-outline-light position-absolute top-50 end-0 translate-middle-y me-2"
-                  onClick={() => setSearchOne("")}
+                  onClick={() => {
+                    setDriverOne("");
+                    setDriverOneResult("");
+                  }}
                   style={{ zIndex: 2 }}
                 >
                   &times;
@@ -85,15 +134,21 @@ function HeadToHead({ jsonData }) {
                 {drivers
                   .filter(
                     (name) =>
-                      name.toLowerCase().includes(searchOne.toLowerCase()) &&
-                      name !== searchTwo
+                      name.toLowerCase().includes(driverOne.toLowerCase()) &&
+                      name !== driverTwo
                   )
                   .map((name, i) => (
                     <li
                       key={i}
                       className="list-group-item list-group-item-action"
                       onClick={() => {
-                        setSearchOne(name);
+                        setDriverOne(name);
+                        const results = getDriverResults(
+                          jsonData,
+                          yearViz,
+                          name
+                        );
+                        setDriverOneResult(results);
                         setIsFocusedOne(false);
                       }}
                       style={{ cursor: "pointer" }}
@@ -111,17 +166,20 @@ function HeadToHead({ jsonData }) {
               <input
                 type="text"
                 className="form-control"
-                value={searchTwo}
+                value={driverTwo}
                 onFocus={() => setIsFocusedTwo(true)}
                 onBlur={() => setTimeout(() => setIsFocusedTwo(false), 100)}
-                onChange={(e) => setSearchTwo(e.target.value)}
+                onChange={(e) => setDriverTwo(e.target.value)}
                 placeholder="Type to search..."
               />
-              {searchTwo && (
+              {driverTwo && (
                 <button
                   type="button"
                   className="btn btn-sm btn-outline-light position-absolute top-50 end-0 translate-middle-y me-2"
-                  onClick={() => setSearchTwo("")}
+                  onClick={() => {
+                    setDriverTwo("");
+                    setDriverTwoResult(""); // Clear results too
+                  }}
                   style={{ zIndex: 2 }}
                 >
                   &times;
@@ -133,15 +191,21 @@ function HeadToHead({ jsonData }) {
                 {drivers
                   .filter(
                     (name) =>
-                      name.toLowerCase().includes(searchTwo.toLowerCase()) &&
-                      name !== searchOne
+                      name.toLowerCase().includes(driverTwo.toLowerCase()) &&
+                      name !== driverOne
                   )
                   .map((name, i) => (
                     <li
                       key={i}
                       className="list-group-item list-group-item-action"
                       onClick={() => {
-                        setSearchTwo(name);
+                        setDriverTwo(name);
+                        const results = getDriverResults(
+                          jsonData,
+                          yearViz,
+                          name
+                        );
+                        setDriverTwoResult(results);
                         setIsFocusedTwo(false);
                       }}
                       style={{ cursor: "pointer" }}
