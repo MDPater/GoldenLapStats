@@ -4,6 +4,7 @@ import Teams from "../components/season/Teams";
 import Results from "../components/season/Results";
 import Drivers from "../components/season/Drivers";
 import LeaderBoard from "./LeaderBoard";
+import DataViz from "./DataViz";
 
 function SeasonStats({ data }) {
   const [year, setYear] = useState();
@@ -21,6 +22,7 @@ function SeasonStats({ data }) {
       <div className="d-flex align-items-center gap-3 mb-3">
         <div className="w-25">
           <CalendarYearDropdown
+            defaultText={"Data Viz"}
             data={data.Career?.Years}
             year={year}
             setYear={setYear}
@@ -120,7 +122,7 @@ function SeasonStats({ data }) {
         )
       }
 
-      {!year && <h1>{/* Add driver cards in future */}</h1>}
+      {!year && <DataViz data={data} />}
     </div>
   );
 }
