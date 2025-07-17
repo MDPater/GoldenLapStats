@@ -1,4 +1,4 @@
-function CalendarYearDropdown({ data, year, setYear }) {
+function CalendarYearDropdown({ defaultText, data, year, setYear }) {
   if (!data || !Array.isArray(data)) return null;
 
   const handleChange = (e) => {
@@ -10,7 +10,7 @@ function CalendarYearDropdown({ data, year, setYear }) {
       <label className="form-label text-light fw-bold">Select Year</label>
       <div className="d-flex gap-2">
         <select className="form-select" value={year} onChange={handleChange}>
-          <option value="">Choose a year</option>
+          <option value="">{defaultText}</option>
           {data.map((yearObj, index) => (
             <option key={index} value={yearObj.CalendarYear}>
               {yearObj.CalendarYear}
