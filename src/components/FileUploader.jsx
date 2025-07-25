@@ -20,7 +20,7 @@ function FileUploader({ onClose, setData }) {
       }
     };
 
-    reader.readAsText(file);
+    reader.readAsText(file, "UTF-8");
   };
 
   const saveData = () => {

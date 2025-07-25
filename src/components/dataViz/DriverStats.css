@@ -1,0 +1,12 @@
+.chart-container {
+    flex: 1;
+    min-width: 300px;
+    max-width: 100%;
+}
+
+@media (min-width: 1200px) {
+  .chart-container {
+    min-width: 700px;
+    max-width: 1000px;
+  }
+}
